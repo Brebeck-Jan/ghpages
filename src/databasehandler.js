@@ -4,7 +4,7 @@ import $ from 'jquery';
 const Database_url = "https://murat-db-default-rtdb.europe-west1.firebasedatabase.app/"
 
 
-export function getAllRecipes() {
+export function getAllSongs() {
     let response
     $.ajax({
         url: Database_url + 'songs.json',
@@ -22,4 +22,5 @@ export function getAllRecipes() {
             throw new Error("Error during loading of all songs");
         }
     });
-    return response;
+    return response
+}
