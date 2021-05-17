@@ -1,32 +1,63 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
+import Autocomplete from '@material-ui/lab/Autocomplete'
+import TextField from '@material-ui/core/TextField'
 import './App.css';
-import {getAllSongs} from "./databasehandler"
+import { getAllSongs, getSongSuggestions } from "./databasehandler"
 
 
 function App() {
-  let allSongs = getAllSongs();
+  const [selectedSong, setSelectedSong] = useState("");
+  const [suggestionResults, setSuggestionResults] = useState();
+  let allSongs = Object.values(getAllSongs());
+  console.log(allSongs)
+
+  let search = (nameKey, myArray) => {
+    for (var i = 0; i < myArray.length; i++) {
+      if (myArray[i].titel === nameKey) {
+        return myArray[i];
+      }
+    }
+  }
+
+  let calculateSuggestion = (songInformations) => {
+
+
+
+   }
+
+  let generateSuggestionDisplay = () => {
+    let currentSongInformations = search(selectedSong, allSongs)
+    console.log(currentSongInformations)
+
+
+    setSuggestionResults(<h1>test</h1>)
+    setSelectedSong( "" )
+    console.log("generateSuffestion fetr")
+  }
+
+  console.log(suggestionResults)
+  console.log(selectedSong)
   return (
     <div className="App">
       <h1>Songtiteleingabe:</h1>
-      {/* Für die Autosuggest brauchen wir schon alle Titel */}
-      <input type="text"></input>
-      <button>{"Vorschlag generieren"}</button>
 
-{/* 
-      <table>
-          <tr>
-          <th>Seite1</th>
-          <th>Lastname</th>
-          <th>Age</th>
-        </tr>
-        <tr>
-          <td>Jill</td>
-          <td>Smith</td>
-          <td>50</td>
-        </tr>
-      </table> */}
+      <Autocomplete
+        id="combo-box-demo"
+        options={allSongs}
+        getOptionLabel={(option) => option.titel}
+        style={{ width: 300 }}
+        renderInput={(params) => <TextField {...params} label="Combo box" variant="outlined" />}
+        onChange={(e) => { setSelectedSong(e.target.innerHTML) }}
+      />
+      <button
+        onClick={() => { generateSuggestionDisplay() }}>
+        {"Vorschlag generieren"}
+      </button>
+
+      {suggestionResults}
+
 
     </div>
   );
