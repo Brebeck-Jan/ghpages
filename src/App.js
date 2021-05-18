@@ -19,7 +19,7 @@ function App() {
 
   let search = (nameKey, myArray) => {
     for (var i = 0; i < myArray.length; i++) {
-      if (myArray[i].titel === nameKey) {
+      if (myArray[i].title === nameKey) {
         return myArray[i];
       }
     }
@@ -62,7 +62,7 @@ function App() {
       <Autocomplete
         id="combo-box-demo"
         options={allSongs}
-        getOptionLabel={(option) => option.titel}
+        getOptionLabel={(option) => option.title}
         style={{ width: 300 }}
         renderInput={(params) => <TextField {...params} label="Combo box" variant="outlined" />}
         onChange={(e) => { setSelectedSong(e.target.innerHTML) }}

@@ -12,6 +12,8 @@ export function getAllSongs() {
         type: 'GET',
         async: false,
         success: function (serverResponse) {
+
+            console.log(serverResponse)
             response = serverResponse;
         },
         error: function (serverResponse) {
