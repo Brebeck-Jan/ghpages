@@ -11,25 +11,25 @@ function Customer_B() {
         <tr>
           {/* Style Linien drum herum */}
           <td>
-            <Link to="/customer_b/sales">Sales Dashboard</Link>
+            <Link to="/customer/sales">Sales Dashboard</Link>
           </td>
           <td>
-            <Link to="/customer_b/customer">Kundenübersicht</Link>
+            <Link to="/customer/customer">Kundenübersicht</Link>
           </td>
           <td>
-            <Link to="/customer_b/workshop_planing">Werkstattplanung</Link>
+            <Link to="/customer/workshop_planing">Werkstattplanung</Link>
           </td>
           <td>
             {/* englisches Wort? */}
-            <Link to="/customer_b/order_planing">Auftragsplanung</Link>
+            <Link to="/customer/order_planing">Auftragsplanung</Link>
           </td>
         </tr>
       </table>
       <Switch>
-        <Route exact path="/customer_b/sales" component={Salesdashboard} />
-        <Route exact path="/customer_b/customer" component={Customerdashboard} />
-        <Route exact path="/customer_b/workshop_planing" component={Workshop_planing} />
-        <Route exact path="/customer_b/order_planing" component={Order_planing} />
+        <Route exact path="/customer/sales" component={Salesdashboard} />
+        <Route exact path="/customer/customer" component={Customerdashboard} />
+        <Route exact path="/customer/workshop_planing" component={Workshop_planing} />
+        <Route exact path="/customer/order_planing" component={Order_planing} />
       </Switch>
     </span>
   );
