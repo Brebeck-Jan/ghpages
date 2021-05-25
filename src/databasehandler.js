@@ -1,10 +1,8 @@
 import $ from 'jquery';
-//old url
-//const Database_url = "https://cocktailapp-d958.firebaseio.com/"
 const Database_url = "https://murat-db-default-rtdb.europe-west1.firebasedatabase.app/"
 
 
-export function getAllSongs() {
+export function getSalesData() {
     let response
     $.ajax({
         url: Database_url + 'songs.json',
@@ -20,7 +18,7 @@ export function getAllSongs() {
             console.log("Errorlog: Response: ", serverResponse);
             response = serverResponse;
             debugger;
-            throw new Error("Error during loading of all songs");
+            throw new Error("Error during loading of sales data");
         }
     });
     return response
