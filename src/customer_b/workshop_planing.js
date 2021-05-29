@@ -1,8 +1,7 @@
-
-function Customer_B() {
+function workshop_planing() {
   return (
-    <h1>workshop_planing</h1>
+      <h1>workshop_planing</h1>
   );
 }
 
-export default Customer_B;
+export default workshop_planing;
